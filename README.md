@@ -1,4 +1,4 @@
-# codelabs
+# Code Labs
 Google Code Labs implementation.
 
 ## Compose Concepts
@@ -6,4 +6,4 @@ Google Code Labs implementation.
 - To preserve state across recompositions, remember the mutable state using **remember**.
   - remember is used to guard against recomposition, so the state is not reset.
   - https://androidpro.io/whats-the-difference-between-remember-and-by-remember/
-- 
+- In Compose you don't hide UI elements. Instead, you simply don't add them to the composition, so they're not added to the UI tree that Compose generates.
