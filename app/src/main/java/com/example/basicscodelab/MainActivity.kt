@@ -12,6 +12,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.MaterialTheme
@@ -70,13 +72,16 @@ fun Greeting(name: String, modifier: Modifier = Modifier, expand: Boolean = fals
 }
 
 @Composable
-fun Greetings(modifier: Modifier = Modifier, names: List<String> = listOf("World 1", "Compose 2")) {
+fun Greetings(
+    modifier: Modifier = Modifier,
+    names: List<String> = List(1000) { "Item $it" }
+) {
     Surface (
         modifier = modifier,
         color = MaterialTheme.colorScheme.background
     ) {
-        Column (modifier) {
-            for (name in names){
+        LazyColumn (modifier= modifier.padding(vertical = 4.dp)) {
+            items(names) { name ->
                 Greeting(name = name, modifier = Modifier.fillMaxWidth())
             }
         }
