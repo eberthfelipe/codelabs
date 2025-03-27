@@ -7,3 +7,4 @@ Google Code Labs implementation.
   - remember is used to guard against recomposition, so the state is not reset.
   - https://androidpro.io/whats-the-difference-between-remember-and-by-remember/
 - In Compose you don't hide UI elements. Instead, you simply don't add them to the composition, so they're not added to the UI tree that Compose generates.
+- **remember** in Jetpack Compose only preserves state within the current composition. To retain state across configuration changes (like screen rotation) or process death, use **rememberSaveable** instead.

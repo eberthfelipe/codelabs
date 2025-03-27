@@ -23,7 +23,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -49,7 +49,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier, expand: Boolean = false) {
-    var expanded by remember { mutableStateOf(expand) }
+    var expanded by rememberSaveable { mutableStateOf(expand) }
     val extraPadding = if (expanded) 48.dp else 0.dp
     Surface(
         color = MaterialTheme.colorScheme.primary,
@@ -99,7 +99,7 @@ fun MainUI(modifier: Modifier = Modifier) {
 @Composable
 fun MyApp(modifier: Modifier = Modifier, shouldShowOnBoarding: Boolean = true) {
     //hoisted state
-    var shouldShowOnBoarding by remember { mutableStateOf(shouldShowOnBoarding) }
+    var shouldShowOnBoarding by rememberSaveable { mutableStateOf(shouldShowOnBoarding) }
     val onContinueClicked = { shouldShowOnBoarding = false }
 
     Surface(modifier) {
